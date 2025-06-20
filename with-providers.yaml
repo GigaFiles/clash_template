@@ -109,7 +109,7 @@ proxy-groups:
   expected-status: 204
   url: 'https://www.google.com/generate_204'
   interval: 10
-  tolerance: 25
+  tolerance: 20
   timeout: 1000
   max-failed-times: 1
   lazy: true
