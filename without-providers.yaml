@@ -1,159 +1,167 @@
 #参考了：
 # clash-rules ---->  https://github.com/Loyalsoldier/clash-rules
 # Mihomo Party 覆写模板 ----> https://github.com/mihomo-party-org/override-hub
-
+    
 #------------------1，proxies: ------------------
 #这个配置块是【节点】，会在拉入节点时或覆写加入
 #proxies:              
 
 #------------------2，proxy-groups: ------------------
 proxy-groups:
--
-  name: ProxyAtlas          #<<<<<-------自定义一个总代理池的名字，在rules的最后会用来收尾流量
-  type: select
-  include-all: true
-  #include-all-providers: true
-  hidden: false
-  expected-status: 204
-  url: 'https://www.google.com/generate_204'
-  interval: 10
-  timeout: 1000
-  max-failed-times: 1
-  lazy: true
-  proxies:
-    - '自动选择延迟最低节点'
-    - '负载均衡'
-    - '遇故障自动切换'
-    - '自动选择延迟HK最低节点'
-    - '自动选择延迟TW最低节点'
-    - '自动选择延迟Singapore最低节点'
-    - '自动选择延迟Japan最低节点'
-    - '自动选择延迟USA最低节点'
--
-  name: '自动选择延迟最低节点'
-  type: url-test
-  tolerance: 25
-  include-all: true
-  #include-all-providers: true
-  exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-  hidden: false
-  expected-status: 204
-  url: 'https://www.google.com/generate_204'
-  interval: 10
-  timeout: 1000
-  max-failed-times: 1
-  lazy: true
-  proxies:
--
-  name: '负载均衡'
-  type: load-balance
-  #consistent-hashing,round-robin,sticky-sessions
-  strategy: round-robin
-  include-all: true
-  #include-all-providers: true
-  exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-  hidden: false
-  expected-status: 204
-  url: 'https://www.google.com/generate_204'
-  interval: 10
-  timeout: 1000
-  max-failed-times: 1
-  lazy: true
-  proxies:
--
-  name: '遇故障自动切换'
-  type: fallback
-  include-all: true
-  #include-all-providers: true
-  exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-  hidden: false
-  expected-status: 204
-  url: 'https://www.google.com/generate_204'
-  interval: 10
-  max-failed-times: 1
-  timeout: 1000
-  lazy: true
-  proxies:
--
-  name: '自动选择延迟HK最低节点'
-  filter: "(?i)香港|Hong|Kong|HK|🇭🇰"
-  type: url-test
-  tolerance: 25
-  include-all: true
-  #include-all-providers: true
-  exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-  hidden: true
-  expected-status: 204
-  url: 'https://www.google.com/generate_204'
-  interval: 10
-  timeout: 1000
-  max-failed-times: 1
-  lazy: true
-  proxies:
--
-  name: '自动选择延迟TW最低节点'
-  filter: "(?i)台湾|台灣|Taiwan|TW|🇹🇼"
-  type: url-test
-  tolerance: 25
-  include-all: true
-  #include-all-providers: true
-  exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-  hidden: true
-  expected-status: 204
-  url: 'https://www.google.com/generate_204'
-  interval: 10
-  timeout: 1000
-  max-failed-times: 1
-  lazy: true
-  proxies:
--
-  name: '自动选择延迟Singapore最低节点'
-  filter: "(?i)新加坡|Singapore|SG|🇸🇬"
-  type: url-test
-  tolerance: 25
-  include-all: true
-  #include-all-providers: true
-  exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-  hidden: true
-  expected-status: 204
-  url: 'https://www.google.com/generate_204'
-  interval: 10
-  timeout: 1000
-  max-failed-times: 1
-  lazy: true
-  proxies:
--
-  name: '自动选择延迟Japan最低节点'
-  filter: "(?i)日本|Japan|JP|🇯🇵"
-  type: url-test
-  tolerance: 25
-  include-all: true
-  #include-all-providers: true
-  exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-  hidden: true
-  expected-status: 204
-  url: 'https://www.google.com/generate_204'
-  interval: 10
-  timeout: 1000
-  max-failed-times: 1
-  lazy: true
-  proxies:
--
-  name: '自动选择延迟USA最低节点'
-  filter: "(?i)美国|美國|USA|United *States|US|🇺🇸"
-  type: url-test
-  tolerance: 25
-  include-all: true
-  #include-all-providers: true
-  exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
-  hidden: true
-  expected-status: 204
-  url: 'https://www.google.com/generate_204'
-  interval: 10
-  timeout: 1000
-  max-failed-times: 1
-  lazy: true
-  proxies:
+  - name: ProxyAtlas                    #<<<<<-------自定义一个总代理池的名字，在rules的最后会用来收尾流量
+    type: select
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png
+    hidden: false
+    lazy: true
+    include-all: true
+    #include-all-providers: true
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 10
+    timeout: 1000
+    max-failed-times: 1
+    proxies:
+      - '自动选择延迟最低节点'
+      - '负载均衡'
+      - '遇故障自动切换'
+      - '自动选择延迟HK最低节点'
+      - '自动选择延迟TW最低节点'
+      - '自动选择延迟Singapore最低节点'
+      - '自动选择延迟Japan最低节点'
+      - '自动选择延迟USA最低节点'
+
+  - name: '自动选择延迟最低节点'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png
+    hidden: true
+    lazy: true
+    include-all: true
+    #include-all-providers: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 10
+    timeout: 1000
+    max-failed-times: 1
+    tolerance: 25
+    proxies: []
+
+  - name: '负载均衡'
+    type: load-balance
+    #consistent-hashing,round-robin,sticky-sessions
+    strategy: round-robin
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Roundrobin.png
+    hidden: true
+    lazy: true
+    include-all: true
+    #include-all-providers: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 10
+    timeout: 1000
+    max-failed-times: 1
+    proxies: []
+
+  - name: '遇故障自动切换'
+    type: fallback
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Available.png
+    hidden: false
+    lazy: true
+    include-all: true
+    #include-all-providers: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 10
+    timeout: 1000
+    max-failed-times: 1
+    proxies: []
+
+  - name: '自动选择延迟HK最低节点'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
+    hidden: true
+    lazy: true
+    include-all: true
+    #include-all-providers: true
+    filter: "(?i)香港|Hong|Kong|HK|🇭🇰"
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 10
+    timeout: 1000
+    max-failed-times: 1
+    tolerance: 25
+    proxies: []
+
+  - name: '自动选择延迟TW最低节点'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png
+    hidden: true
+    lazy: true
+    include-all: true
+    #include-all-providers: true
+    filter: "(?i)台湾|台灣|Taiwan|TW|🇹🇼"
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 10
+    timeout: 1000
+    max-failed-times: 1
+    tolerance: 25
+    proxies: []
+
+  - name: '自动选择延迟Singapore最低节点'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
+    hidden: true
+    lazy: true
+    include-all: true
+    #include-all-providers: true
+    filter: "(?i)新加坡|Singapore|SG|🇸🇬"
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 10
+    timeout: 1000
+    max-failed-times: 1
+    tolerance: 25
+    proxies: []
+
+  - name: '自动选择延迟Japan最低节点'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
+    hidden: true
+    lazy: true
+    include-all: true
+    #include-all-providers: true
+    filter: "(?i)日本|Japan|JP|🇯🇵"
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 10
+    timeout: 1000
+    max-failed-times: 1
+    tolerance: 25
+    proxies: []
+
+  - name: '自动选择延迟USA最低节点'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
+    hidden: true
+    lazy: true
+    include-all: true
+    #include-all-providers: true
+    filter: "(?i)美国|美國|USA|United *States|US|🇺🇸"
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 10
+    timeout: 1000
+    max-failed-times: 1
+    tolerance: 25
+    proxies: []
 
 #---------------------3，rule-providers:------------------
 rule-providers:
@@ -335,4 +343,4 @@ rules:
   - "RULE-SET,google,ProxyAtlas"
   - "RULE-SET,proxy,ProxyAtlas"
   - "RULE-SET,telegramcidr,ProxyAtlas"
-  - "MATCH,ProxyAtlas"               # <<<<<<--------总代理池的名字ProxyAtlas，直连和reject的匹配完了，收尾  ，没走reject和direct的流量全部代理  
+  - "MATCH,ProxyAtlas"               # <<<<<<--------总代理池的名字ProxyAtlas，直连和reject的匹配完了，收尾，没走reject和direct的流量全部代理  
