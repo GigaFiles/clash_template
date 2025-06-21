@@ -1,7 +1,22 @@
 #参考了：
 # clash-rules ---->  https://github.com/Loyalsoldier/clash-rules
 # Mihomo Party 覆写模板 ----> https://github.com/mihomo-party-org/override-hub
-   
+
+#----------------------0，proxy-providers: 请使用覆写添加-------------------------------------------
+# proxy-providers:
+#   provider0:                                              # 名字保持唯一
+#     type: http
+#     url: "订阅链接填这里"                                  #订阅链接填这里
+#     interval: 3600
+#     path: "./provider0.yaml"                               #文件名不要跟现有的冲突
+#     health-check:
+#       enable: true
+#       timeout: 7000
+#       interval: 300
+#       url: https://www.gstatic.com/generate_204
+#       expected-status: 204
+#     proxy: DIRECT
+
 #------------------1，proxies: ------------------
 # 这个配置块是【节点】，会在拉入节点时或覆写加入
 # proxies:              
