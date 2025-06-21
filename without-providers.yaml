@@ -8,7 +8,7 @@
 
 #------------------2，proxy-groups: ------------------
 proxy-groups:
-  - name: '🌐 - ProxyAtlas - 🌐'                    #<<<<<-------自定义一个总代理池的名字，在rules的最后会用来收尾流量
+  - name: 'ProxyAtlas'                    #<<<<<-------自定义一个总代理池的名字，在rules的最后会用来收尾流量
     type: select
     icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png
     hidden: false
@@ -340,7 +340,7 @@ rules:
   - "RULE-SET,cn_ip,DIRECT"
   - "GEOIP,LAN,DIRECT"
   - "GEOIP,CN,DIRECT"
-  - "RULE-SET,google,'🌐 - ProxyAtlas - 🌐'"
-  - "RULE-SET,proxy,'🌐 - ProxyAtlas - 🌐'"
-  - "RULE-SET,telegramcidr,'🌐 - ProxyAtlas - 🌐'"
-  - "MATCH,'🌐 - ProxyAtlas - 🌐'"               # <<<<<<--------总代理池的名字'🌐 - ProxyAtlas - 🌐'，直连和reject的匹配完了，收尾，没走reject和direct的流量全部代理  
+  - "RULE-SET,google,ProxyAtlas"
+  - "RULE-SET,proxy,ProxyAtlas"
+  - "RULE-SET,telegramcidr,ProxyAtlas"
+  - "MATCH,ProxyAtlas"               # <<<<<<--------总代理池的名字'🌐 - ProxyAtlas - 🌐'，直连和reject的匹配完了，收尾，没走reject和direct的流量全部代理  
