@@ -57,7 +57,7 @@ proxy-groups:
     interval: 10
     timeout: 1000
     max-failed-times: 1
-    tolerance: 25
+    tolerance: 50
     proxies: []
 
   - name: '⚖️-负载均衡-⚖️'
@@ -91,7 +91,7 @@ proxy-groups:
     interval: 10
     timeout: 1000
     max-failed-times: 1
-    tolerance: 25
+    tolerance: 50
     proxies: []
 
   - name: '🇹🇼-自动选择TW延迟最低节点-🇹🇼'
@@ -108,7 +108,7 @@ proxy-groups:
     interval: 10
     timeout: 1000
     max-failed-times: 1
-    tolerance: 25
+    tolerance: 50
     proxies: []
 
   - name: '🇸🇬-自动选择Singapore延迟最低节点-🇸🇬'
@@ -125,7 +125,7 @@ proxy-groups:
     interval: 10
     timeout: 1000
     max-failed-times: 1
-    tolerance: 25
+    tolerance: 50
     proxies: []
 
   - name: '🇯🇵-自动选择Japan延迟最低节点-🇯🇵'
@@ -142,7 +142,7 @@ proxy-groups:
     interval: 10
     timeout: 1000
     max-failed-times: 1
-    tolerance: 25
+    tolerance: 50
     proxies: []
 
   - name: '🇺🇸-自动选择USA延迟最低节点-🇺🇸'
@@ -159,7 +159,7 @@ proxy-groups:
     interval: 10
     timeout: 1000
     max-failed-times: 1
-    tolerance: 25
+    tolerance: 50
     proxies: []
 
 #---------------------3，rule-providers:------------------
