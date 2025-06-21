@@ -340,7 +340,7 @@ rules:
   - "RULE-SET,cn_ip,DIRECT"
   - "GEOIP,LAN,DIRECT"
   - "GEOIP,CN,DIRECT"
-  - "RULE-SET,google,ProxyAtlas"
+  - "RULE-SET,google,'🌐 - ProxyAtlas - 🌐'"
   - "RULE-SET,proxy,'🌐 - ProxyAtlas - 🌐'"
   - "RULE-SET,telegramcidr,'🌐 - ProxyAtlas - 🌐'"
   - "MATCH,'🌐 - ProxyAtlas - 🌐'"               # <<<<<<--------总代理池的名字'🌐 - ProxyAtlas - 🌐'，直连和reject的匹配完了，收尾，没走reject和direct的流量全部代理  
