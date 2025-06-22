@@ -38,11 +38,7 @@ proxy-groups:
     proxies:
       - '⚡-自动选择延迟最低节点-⚡'
       - '⚖️-负载均衡-⚖️'
-      - '🇭🇰-自动选择HK延迟最低节点-🇭🇰'
-      - '🇹🇼-自动选择TW延迟最低节点-🇹🇼'
-      - '🇸🇬-自动选择Singapore延迟最低节点-🇸🇬'
-      - '🇯🇵-自动选择Japan延迟最低节点-🇯🇵'
-      - '🇺🇸-自动选择USA延迟最低节点-🇺🇸'
+      - '🔧-遇故障自动切换-🔧'
 
   - name: '⚡-自动选择延迟最低节点-⚡'
     type: url-test
@@ -60,9 +56,11 @@ proxy-groups:
     tolerance: 50
     proxies: []
 
-  - name: '🔧 - 遇故障自动切换 - 🔧'
-    type: fallback
-    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Available.png
+  - name: '⚖️-负载均衡-⚖️'
+    type: load-balance
+    #consistent-hashing,round-robin,sticky-sessions
+    strategy: round-robin
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Roundrobin.png
     hidden: true
     lazy: true
     include-all: true
@@ -75,11 +73,9 @@ proxy-groups:
     max-failed-times: 1
     proxies: []
 
-  - name: '⚖️-负载均衡-⚖️'
-    type: load-balance
-    #consistent-hashing,round-robin,sticky-sessions
-    strategy: round-robin
-    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Roundrobin.png
+  - name: '🔧-遇故障自动切换-🔧'
+    type: fallback
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Available.png
     hidden: true
     lazy: true
     include-all: true
