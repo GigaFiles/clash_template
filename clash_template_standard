@@ -1,0 +1,275 @@
+#参考了：
+# clash-rules ---->  https://github.com/Loyalsoldier/clash-rules
+# Mihomo Party 覆写模板 ----> https://github.com/mihomo-party-org/override-hub
+
+#----------------------0，proxy-providers: 请使用覆写添加-------------------------------------------
+# proxy-providers:
+#   provider0:                                              # 名字保持唯一
+#     type: http
+#     url: "订阅链接填这里"                                  #订阅链接填这里
+#     interval: 3600
+#     path: "./provider0.yaml"                               #文件名不要跟现有的冲突
+#     health-check:
+#       enable: true
+#       timeout: 7000
+#       interval: 300
+#       url: https://www.gstatic.com/generate_204
+#       expected-status: 204
+#     proxy: DIRECT
+
+#------------------1，proxies: ------------------
+# 这个配置块是【节点】，会在拉入节点时或覆写加入
+# proxies:              
+
+#------------------2，proxy-groups: ------------------
+proxy-groups:
+  - name: 'GLOBAL'                    #<<<<<-------GLOBAL，在rules的最后会用来收尾流量
+    type: select
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png
+    hidden: false
+    lazy: true
+    include-all: true
+    #include-all-providers: true
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 10
+    timeout: 1000
+    max-failed-times: 1
+    proxies:
+      - '⚡-自动选择延迟最低节点-⚡'
+      - '⚖️-负载均衡-⚖️'
+      - '🇭🇰-自动选择HK延迟最低节点-🇭🇰'
+      - '🇹🇼-自动选择TW延迟最低节点-🇹🇼'
+      - '🇸🇬-自动选择Singapore延迟最低节点-🇸🇬'
+      - '🇯🇵-自动选择Japan延迟最低节点-🇯🇵'
+      - '🇺🇸-自动选择USA延迟最低节点-🇺🇸'
+
+  - name: '⚡-自动选择延迟最低节点-⚡'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png
+    hidden: true
+    lazy: true
+    include-all: true
+    #include-all-providers: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 10
+    timeout: 1000
+    max-failed-times: 1
+    tolerance: 50
+    proxies: []
+
+  - name: '🔧 - 遇故障自动切换 - 🔧'
+    type: fallback
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Available.png
+    hidden: true
+    lazy: true
+    include-all: true
+    #include-all-providers: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 10
+    timeout: 1000
+    max-failed-times: 1
+    proxies: []
+
+  - name: '⚖️-负载均衡-⚖️'
+    type: load-balance
+    #consistent-hashing,round-robin,sticky-sessions
+    strategy: round-robin
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Roundrobin.png
+    hidden: true
+    lazy: true
+    include-all: true
+    #include-all-providers: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 10
+    timeout: 1000
+    max-failed-times: 1
+    proxies: []
+
+#---------------------3，rule-providers:------------------
+rule-providers:
+  # ==================== 按照 rules 中的引用顺序排列 ====================
+  reject:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+    path: ./ruleset/reject.yaml
+    interval: 86400
+
+  BanAD:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt"
+    path: ./ruleset/BanAD.list
+    interval: 86400
+    format: text
+
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    url: "https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list"
+    path: ./ruleset/LocalAreaNetwork.list
+    interval: 86400
+    format: text
+
+  UnBan:
+    type: http
+    behavior: classical
+    url: "https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/UnBan.list"
+    path: ./ruleset/UnBan.list
+    interval: 86400
+    format: text
+
+  SteamCN:
+    type: http
+    behavior: classical
+    url: "https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/SteamCN.list"
+    path: ./ruleset/SteamCN.list
+    interval: 86400
+    format: text
+
+  ChinaDomain:
+    type: http
+    behavior: domain
+    url: "https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaDomain.list"
+    path: ./ruleset/ChinaDomain.list
+    interval: 86400
+    format: text
+
+  ChinaCompanyIp:
+    type: http
+    behavior: ipcidr
+    url: "https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaCompanyIp.list"
+    path: ./ruleset/ChinaCompanyIp.list
+    interval: 86400
+    format: text
+
+  Download:
+    type: http
+    behavior: classical
+    url: "https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Download.list"
+    path: ./ruleset/Download.list
+    interval: 86400
+    format: text
+
+  applications:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
+    path: ./ruleset/applications.yaml
+    interval: 86400
+
+  private:
+    type: http
+    behavior: domain
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.yaml"
+    path: ./ruleset/private.yaml
+    interval: 86400
+    format: yaml
+
+  icloud:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
+    path: ./ruleset/icloud.yaml
+    interval: 86400
+
+  apple:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
+    path: ./ruleset/apple.yaml
+    interval: 86400
+
+  direct:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
+    path: ./ruleset/direct.yaml
+    interval: 86400
+
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+    path: ./ruleset/lancidr.yaml
+    interval: 86400
+
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
+    path: ./ruleset/cncidr.yaml
+    interval: 86400
+
+  cn_domain:
+    type: http
+    behavior: domain
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.yaml"
+    path: ./ruleset/cn_domain.yaml
+    interval: 86400
+    format: yaml
+
+  cn_ip:
+    type: http
+    behavior: ipcidr
+    url: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.yaml"
+    path: ./ruleset/cn_ip.yaml
+    interval: 86400
+    format: yaml
+
+  google:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
+    path: ./ruleset/google.yaml
+    interval: 86400
+
+  proxy:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+    path: ./ruleset/telegramcidr.yaml
+    interval: 86400
+
+#---------------------rules:----------------------
+rules:
+  - "RULE-SET,reject,REJECT"
+  - "RULE-SET,BanAD,REJECT"
+  - "RULE-SET,LocalAreaNetwork,DIRECT"
+  - "RULE-SET,UnBan,DIRECT"
+  - "RULE-SET,SteamCN,DIRECT"
+  - "RULE-SET,ChinaDomain,DIRECT"
+  - "RULE-SET,ChinaCompanyIp,DIRECT"
+  - "RULE-SET,Download,DIRECT"
+  - "RULE-SET,applications,DIRECT"
+  - "DOMAIN,clash.razord.top,DIRECT"
+  - "DOMAIN,yacd.haishan.me,DIRECT"
+  - "RULE-SET,private,DIRECT"
+  - "RULE-SET,icloud,DIRECT"
+  - "RULE-SET,apple,DIRECT"
+  - "RULE-SET,direct,DIRECT"
+  - "RULE-SET,lancidr,DIRECT"
+  - "RULE-SET,cncidr,DIRECT"
+  - "RULE-SET,private,DIRECT"
+  - "RULE-SET,cn_domain,DIRECT"
+  - "RULE-SET,cn_ip,DIRECT"
+  - "GEOIP,LAN,DIRECT"
+  - "GEOIP,CN,DIRECT"
+  - "RULE-SET,google,GLOBAL"
+  - "RULE-SET,proxy,GLOBAL"
+  - "RULE-SET,telegramcidr,GLOBAL"
+  - "MATCH,GLOBAL"               # <<<<<<--------总代理池GLOBAL，直连和reject的匹配完了，收尾，没走reject和direct的流量全部代理  
