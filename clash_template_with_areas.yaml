@@ -77,6 +77,21 @@ proxy-groups:
     max-failed-times: 1
     proxies: []
 
+  - name: '🔧 - 遇故障自动切换 - 🔧'
+    type: fallback
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Available.png
+    hidden: true
+    lazy: true
+    include-all: true
+    #include-all-providers: true
+    exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 10
+    timeout: 1000
+    max-failed-times: 1
+    proxies: []
+
   - name: '🇭🇰-自动选择HK延迟最低节点-🇭🇰'
     type: url-test
     icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
