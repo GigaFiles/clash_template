@@ -23,7 +23,12 @@
 
 #------------------2，proxy-groups: ------------------
 proxy-groups:
-  - name: 'GLOBAL'                    #<<<<<-------GLOBAL，在rules的最后会用来收尾流量
+  - name: GLOBAL
+    hidden: true
+    type: fallback
+    proxies: 
+      - DIRECT
+  - name: 'ProxyAtlas'           #<<<<<-------总代理组，在rules的最后会用来收尾流量
     type: select
     icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png
     hidden: false
@@ -265,7 +270,7 @@ rules:
   - "RULE-SET,cn_ip,DIRECT"
   - "GEOIP,LAN,DIRECT"
   - "GEOIP,CN,DIRECT"
-  - "RULE-SET,google,GLOBAL"
-  - "RULE-SET,proxy,GLOBAL"
-  - "RULE-SET,telegramcidr,GLOBAL"
-  - "MATCH,GLOBAL"               # <<<<<<--------总代理池GLOBAL，直连和reject的匹配完了，收尾，没走reject和direct的流量全部代理  
+  - "RULE-SET,google,"
+  - "RULE-SET,proxy,"
+  - "RULE-SET,telegramcidr,"
+  - "MATCH,ProxyAtlas"               # <<<<<<--------总代理池ProxyAtlas，直连和reject的匹配完了，收尾，没走reject和direct的流量全部代理  
