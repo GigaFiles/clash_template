@@ -225,27 +225,6 @@ rule-providers:
     interval: 86400
     format: yaml
 
-  google:
-    type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
-    path: ./ruleset/google.yaml
-    interval: 86400
-
-  proxy:
-    type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
-    path: ./ruleset/proxy.yaml
-    interval: 86400
-
-  telegramcidr:
-    type: http
-    behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
-    path: ./ruleset/telegramcidr.yaml
-    interval: 86400
-
 #---------------------rules:----------------------
 rules:
   - "RULE-SET,reject,REJECT"
@@ -257,8 +236,6 @@ rules:
   - "RULE-SET,ChinaCompanyIp,DIRECT"
   - "RULE-SET,Download,DIRECT"
   - "RULE-SET,applications,DIRECT"
-  - "DOMAIN,clash.razord.top,DIRECT"
-  - "DOMAIN,yacd.haishan.me,DIRECT"
   - "RULE-SET,private,DIRECT"
   - "RULE-SET,icloud,DIRECT"
   - "RULE-SET,apple,DIRECT"
@@ -270,7 +247,5 @@ rules:
   - "RULE-SET,cn_ip,DIRECT"
   - "GEOIP,LAN,DIRECT"
   - "GEOIP,CN,DIRECT"
-  - "RULE-SET,google,"
-  - "RULE-SET,proxy,"
-  - "RULE-SET,telegramcidr,"
+  - "DOMAIN,clash.razord.top,DIRECT"
   - "MATCH,ProxyAtlas"               # <<<<<<--------总代理池ProxyAtlas，直连和reject的匹配完了，收尾，没走reject和direct的流量全部代理  
