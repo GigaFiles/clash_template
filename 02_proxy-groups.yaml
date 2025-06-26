@@ -1,0 +1,210 @@
+# 使用总的规则模板后，再用这个节点的信息覆写
+# 注意，proxy-groups+是带+号的，是追加覆写
+proxy-groups+:
+  - name: '🇭🇰-自动选择HK延迟最低节点-🇭🇰'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
+    hidden: true
+    lazy: true
+    include-all: true
+    filter: "(?i)香港|Hong|Kong|HK|🇭🇰"
+    exclude-filter: "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置"
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 30
+    timeout: 2000
+    max-failed-times: 2
+    tolerance: 50
+    proxies: []
+
+  - name: '🇹🇼-自动选择TW延迟最低节点-🇹🇼'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png
+    hidden: true
+    lazy: true
+    include-all: true
+    filter: "(?i)台湾|台灣|Taiwan|TW|🇹🇼"
+    exclude-filter: "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置"
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 30
+    timeout: 2000
+    max-failed-times: 2
+    tolerance: 50
+    proxies: []
+
+  - name: '🇸🇬-自动选择Singapore延迟最低节点-🇸🇬'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
+    hidden: true
+    lazy: true
+    include-all: true
+    filter: "(?i)新加坡|Singapore|SG|🇸🇬"
+    exclude-filter: "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置"
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 30
+    timeout: 2000
+    max-failed-times: 2
+    tolerance: 50
+    proxies: []
+
+  - name: '🇯🇵-自动选择JP延迟最低节点-🇯🇵'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
+    hidden: true
+    lazy: true
+    include-all: true
+    filter: "(?i)日本|Japan|JP|Tokyo|Osaka|🇯🇵"
+    exclude-filter: "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置"
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 30
+    timeout: 2000
+    max-failed-times: 2
+    tolerance: 50
+    proxies: []
+
+  - name: '🇺🇸-自动选择USA延迟最低节点-🇺🇸'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
+    hidden: true
+    lazy: true
+    include-all: true
+    filter: "(?i)美国|美國|USA|United *States|US|Los.?Angeles|LA|San.?Francisco|New.?York|🇺🇸"
+    exclude-filter: "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置"
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 30
+    timeout: 2000
+    max-failed-times: 2
+    tolerance: 50
+    proxies: []
+
+  - name: '🇲🇾-自动选择Malaysia延迟最低节点-🇲🇾'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/MY.png
+    hidden: true
+    lazy: true
+    include-all: true
+    filter: "(?i)马来西亚|馬來西亞|Malaysia|MY|Kuala.?Lumpur|🇲🇾"
+    exclude-filter: "(?i)Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置"
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 30
+    timeout: 2000
+    max-failed-times: 2
+    tolerance: 50
+    proxies: []
+
+  - name: '🇨🇦-自动选择Canada延迟最低节点-🇨🇦'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/CA.png
+    hidden: true
+    lazy: true
+    include-all: true
+    filter: "(?i)加拿大|Canada|CA|Toronto|Montreal|Vancouver|Ottawa|🇨🇦"
+    exclude-filter: "(?i)Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置"
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 30
+    timeout: 2000
+    max-failed-times: 2
+    tolerance: 50
+    proxies: []
+
+  - name: '🇬🇧-自动选择England延迟最低节点-🇬🇧'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/UK.png
+    hidden: true
+    lazy: true
+    include-all: true
+    filter: "(?i)英国|英國|UK|United *Kingdom|England|London|🇬🇧"
+    exclude-filter: "(?i)Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置"
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 30
+    timeout: 2000
+    max-failed-times: 2
+    tolerance: 50
+    proxies: []
+
+  - name: '🇩🇪-自动选择Germany延迟最低节点-🇩🇪'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/DE.png
+    hidden: true
+    lazy: true
+    include-all: true
+    filter: "(?i)德国|德國|Germany|DE|Frankfurt|Berlin|Munich|🇩🇪"
+    exclude-filter: "(?i)Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置"
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 30
+    timeout: 2000
+    max-failed-times: 2
+    tolerance: 50
+    proxies: []
+
+  - name: '🇮🇳-自动选择India延迟最低节点-🇮🇳'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/IN.png
+    hidden: true
+    lazy: true
+    include-all: true
+    filter: "(?i)印度|India|IN|Bangalore|Delhi|Mumbai|🇮🇳"
+    exclude-filter: "(?i)Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置"
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 30
+    timeout: 2000
+    max-failed-times: 2
+    tolerance: 50
+    proxies: []
+
+  - name: '🇻🇳-自动选择VietNam延迟最低节点-🇻🇳'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/VN.png
+    hidden: true
+    lazy: true
+    include-all: true
+    filter: "(?i)越南|Viet.?Nam|VN|Hanoi|Ho.?Chi.?Minh|Saigon|🇻🇳"
+    exclude-filter: "(?i)Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置"
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 30
+    timeout: 2000
+    max-failed-times: 2
+    tolerance: 50
+    proxies: []
+
+  - name: '🇹🇭-自动选择Thailand延迟最低节点-🇹🇭'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/TH.png
+    hidden: true
+    lazy: true
+    include-all: true
+    filter: "(?i)泰国|Thailand|TH|Bangkok|🇹🇭"
+    exclude-filter: "(?i)Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置"
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 30
+    timeout: 2000
+    max-failed-times: 2
+    tolerance: 50
+    proxies: []
+
+  - name: '🇦🇷-自动选择Argentina延迟最低节点-🇦🇷'
+    type: url-test
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/AR.png
+    hidden: true
+    lazy: true
+    include-all: true
+    filter: "(?i)阿根廷|Argentina|AR|Buenos.?Aires|🇦🇷"
+    exclude-filter: "(?i)Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置"
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 30
+    timeout: 2000
+    max-failed-times: 2
+    tolerance: 50
+    proxies: []
