@@ -23,14 +23,24 @@
 
 #------------------2，proxy-groups: ------------------
 proxy-groups:
-  - name: GLOBAL
-    hidden: true
-    type: fallback
-    proxies: 
-      - DIRECT
+  - name: 'GLOBAL'           
+    type: select
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
+    hidden: true             #<<<<<------- GLOBAL组隐藏起来，因为已经有ProxyAtlas这个总组了，电脑上只需要显示ProxyAtlas组，手机上只会强制显示GLOBAL一个组
+    lazy: true
+    #   include-all: true
+    #   include-all-providers: true
+    url: 'https://www.google.com/generate_204'
+    expected-status: 204
+    interval: 10
+    timeout: 1000
+    max-failed-times: 1
+    proxies:
+      - 'ProxyAtlas'
+
   - name: 'ProxyAtlas'           #<<<<<-------总代理组，在rules的最后会用来收尾流量
     type: select
-    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
     hidden: false
     lazy: true
     include-all: true
@@ -225,6 +235,13 @@ rule-providers:
     interval: 86400
     format: yaml
 
+  custom_direct:
+    type: http
+    behavior: domain
+    url: "https://gist.githubusercontent.com/GigaFiles/958c39fc9655026b8a684f3e8cc564ae/raw/gist_rules_DIRECT.yaml"  # <-- 你的自定义规则集下载地址
+    path: ./ruleset/custom_direct.yaml
+    interval: 86400
+
 #---------------------rules:----------------------
 rules:
   - "RULE-SET,reject,REJECT"
@@ -245,7 +262,9 @@ rules:
   - "RULE-SET,private,DIRECT"
   - "RULE-SET,cn_domain,DIRECT"
   - "RULE-SET,cn_ip,DIRECT"
+  - "RULE-SET,custom_direct,DIRECT"
   - "GEOIP,LAN,DIRECT"
   - "GEOIP,CN,DIRECT"
   - "DOMAIN,clash.razord.top,DIRECT"
-  - "MATCH,ProxyAtlas"               # <<<<<<--------总代理池ProxyAtlas，直连和reject的匹配完了，收尾，没走reject和direct的流量全部代理  
+  - 'DOMAIN-REGEX,^.*\.ens\d+\.com$,DIRECT'
+  - "MATCH,ProxyAtlas"               # <<<<<<--------(电脑)总代理池ProxyAtlas，直连和reject的匹配完了，收尾，没走reject和direct的流量全部代理 
