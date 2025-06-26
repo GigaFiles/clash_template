@@ -1,2 +1,7 @@
 # clash_template
-clash 通用模板，带providers
+clash 配置生成，必须是在sub-store中使用
+
+1，新建订阅
+2，使用这个总规则模板覆写
+3，使用各个国家节点配置覆写
+4，脚本在总代理追加节点
