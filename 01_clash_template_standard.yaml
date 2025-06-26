@@ -23,20 +23,6 @@
 
 #------------------2，proxy-groups: ------------------
 proxy-groups:
-  - name: 'GLOBAL'           
-    type: select
-    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
-    hidden: false              #<<<<<-------为了兼容手机clash的代理组显示，不能隐藏
-    lazy: true
-    #  include-all: true
-    #  include-all-providers: true
-    url: 'https://www.google.com/generate_204'
-    expected-status: 204
-    interval: 30
-    timeout: 2000
-    max-failed-times: 2
-    proxies:
-      - 'ProxyAtlas'
   - name: 'ProxyAtlas'           #<<<<<-------总代理组，在rules的最后会用来收尾流量
     type: select
     icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
