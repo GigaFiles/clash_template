@@ -26,18 +26,17 @@ proxy-groups:
   - name: 'GLOBAL'           
     type: select
     icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
-    hidden: true             #<<<<<------- GLOBAL组隐藏起来，因为已经有ProxyAtlas这个总组了，电脑上只需要显示ProxyAtlas组，手机上只会强制显示GLOBAL一个组
+    hidden: false              #<<<<<-------为了兼容手机clash的代理组显示，不能隐藏
     lazy: true
-    #   include-all: true
-    #   include-all-providers: true
+    #  include-all: true
+    #  include-all-providers: true
     url: 'https://www.google.com/generate_204'
     expected-status: 204
-    interval: 10
-    timeout: 1000
-    max-failed-times: 1
+    interval: 30
+    timeout: 2000
+    max-failed-times: 2
     proxies:
       - 'ProxyAtlas'
-
   - name: 'ProxyAtlas'           #<<<<<-------总代理组，在rules的最后会用来收尾流量
     type: select
     icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
@@ -47,14 +46,14 @@ proxy-groups:
     #include-all-providers: true
     url: 'https://www.google.com/generate_204'
     expected-status: 204
-    interval: 10
-    timeout: 1000
-    max-failed-times: 1
+    interval: 30
+    timeout: 2000
+    max-failed-times: 2
     proxies:
       - '⚡-自动选择延迟最低节点-⚡'
       - '⚖️-负载均衡-⚖️'
       - '🔧-遇故障自动切换-🔧'
-
+        
   - name: '⚡-自动选择延迟最低节点-⚡'
     type: url-test
     icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png
@@ -65,9 +64,9 @@ proxy-groups:
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     url: 'https://www.google.com/generate_204'
     expected-status: 204
-    interval: 10
-    timeout: 1000
-    max-failed-times: 1
+    interval: 30
+    timeout: 2000
+    max-failed-times: 2
     tolerance: 50
     proxies: []
 
@@ -83,9 +82,9 @@ proxy-groups:
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     url: 'https://www.google.com/generate_204'
     expected-status: 204
-    interval: 10
-    timeout: 1000
-    max-failed-times: 1
+    interval: 30
+    timeout: 2000
+    max-failed-times: 2
     proxies: []
 
   - name: '🔧-遇故障自动切换-🔧'
@@ -98,9 +97,9 @@ proxy-groups:
     exclude-filter: (?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置
     url: 'https://www.google.com/generate_204'
     expected-status: 204
-    interval: 10
-    timeout: 1000
-    max-failed-times: 1
+    interval: 30
+    timeout: 2000
+    max-failed-times: 2
     proxies: []
 
 #---------------------3，rule-providers:------------------
