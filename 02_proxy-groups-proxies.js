@@ -50,11 +50,11 @@ const patterns = [
     filter: "(?i)日本|Japan|JP|Tokyo|Osaka|🇯🇵"
   },
   {
-    regex: /美国|美國|USA|United *States|US|Los.?Angeles|LA|San.?Francisco|New.?York|🇺🇸/i,
+    regex: /美国|美國|USA|United *States|US|Los.?Angeles|LA|San.?Francisco|New.?York|San.?Jose|圣何塞|聖何塞/i,
     autoName: "\uD83C\uDDFA\uD83C\uDDF8-自动选择USA延迟最低节点-\uD83C\uDDFA\uD83C\uDDF8",
-    name: '🇺🇸-自动选择USA延迟最低节点-🇺🇸',
+    name: '<d83c><ddfa><d83c><ddf8>-自动选择USA延迟最低节点-<d83c><ddfa><d83c><ddf8>',
     icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png',
-    filter: "(?i)美国|美國|USA|United *States|US|Los.?Angeles|LA|San.?Francisco|New.?York|🇺🇸"
+    filter: "(?i)美国|美國|USA|United *States|US|Los.?Angeles|LA|San.?Francisco|New.?York|San.?Jose|圣何塞|聖何塞"
   },
   {
     regex: /马来西亚|馬來西亞|Malaysia|MY|Kuala.?Lumpur|🇲🇾/i,
