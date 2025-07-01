@@ -16,7 +16,7 @@ function main(config) {
     autoName: "\uD83C\uDDFA\uD83C\uDDF8-自动选择USA延迟最低节点-\uD83C\uDDFA\uD83C\uDDF8" 
   },
   { regex: /马来西亚|馬來西亞|Malaysia|MY|Kuala.?Lumpur|🇲🇾/i, autoName: "\uD83C\uDDF2\uD83C\uDDFE-自动选择Malaysia延迟最低节点-\uD83C\uDDF2\uD83C\uDDFE" },
-  { regex: /加拿大|Canada|CA|Toronto|Montreal|Vancouver|Ottawa|🇨🇦/i, autoName: "\uD83C\uDDE8\uD83C\uDDE6-自动选择Canada延迟最低节点-\uD83C\uDDE8\uD83C\uDDE6" },
+  { regex: /加拿大|Canada|CA|Toronto|TRT|Montreal|Vancouver|Ottawa|🇨🇦/i, autoName: "\uD83C\uDDE8\uD83C\uDDE6-自动选择Canada延迟最低节点-\uD83C\uDDE8\uD83C\uDDE6" },
   { regex: /英国|英國|UK|United *Kingdom|England|London|🇬🇧/i, autoName: "\uD83C\uDDEC\uD83C\uDDE7-自动选择England延迟最低节点-\uD83C\uDDEC\uD83C\uDDE7" },
   { regex: /德国|德國|Germany|DE|Frankfurt|Berlin|Munich|🇩🇪/i, autoName: "\uD83C\uDDE9\uD83C\uDDEA-自动选择Germany延迟最低节点-\uD83C\uDDE9\uD83C\uDDEA" },
   { regex: /印度|India|IN|Bangalore|Delhi|Mumbai|🇮🇳/i, autoName: "\uD83C\uDDEE\uD83C\uDDF3-自动选择India延迟最低节点-\uD83C\uDDEE\uD83C\uDDF3" },
