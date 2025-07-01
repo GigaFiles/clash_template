@@ -64,12 +64,12 @@ const patterns = [
     filter: "(?i)马来西亚|馬來西亞|Malaysia|MY|Kuala.?Lumpur|🇲🇾"
   },
   {
-    regex: /加拿大|Canada|CA|Toronto|Montreal|Vancouver|Ottawa|🇨🇦/i,
+    regex: /加拿大|Canada|CA|Toronto|TRT|多伦多|多倫多|Montreal|Vancouver|Ottawa|<d83c><dde8><d83c><dde6>/i,
     autoName: "\uD83C\uDDE8\uD83C\uDDE6-自动选择Canada延迟最低节点-\uD83C\uDDE8\uD83C\uDDE6",
-    name: '🇨🇦-自动选择Canada延迟最低节点-🇨🇦',
+    name: '<d83c><dde8><d83c><dde6>-自动选择Canada延迟最低节点-<d83c><dde8><d83c><dde6>',
     icon: 'https://raw.githubusercontent.com/Orz-3/mini/master/Color/CA.png',
-    filter: "(?i)加拿大|Canada|CA|Toronto|Montreal|Vancouver|Ottawa|🇨🇦"
-  },
+    filter: "(?i)加拿大|Canada|CA|Toronto|TRT|多伦多|多倫多|Montreal|Vancouver|Ottawa|<d83c><dde8><d83c><dde6>"
+  }，
   {
     regex: /英国|英國|UK|United *Kingdom|England|London|🇬🇧/i,
     autoName: "\uD83C\uDDEC\uD83C\uDDE7-自动选择England延迟最低节点-\uD83C\uDDEC\uD83C\uDDE7",
